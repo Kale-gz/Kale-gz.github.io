@@ -63,7 +63,7 @@
   </header>
 
   <main>
-    <p class="muted">Ultimo aggiornamento: 31 ottobre 2026</p>
+    <p class="muted">Ultimo aggiornamento: <time datetime="2026-11-01">1 novembre 2026</time></p>
 
     <section class="summary" aria-label="In breve">
       <h2>In breve</h2>
@@ -72,6 +72,7 @@
         <li>Lo sviluppatore non raccoglie, non riceve e non vende alcun dato personale.</li>
         <li>L'app non richiede un account, non mostra pubblicità e non usa strumenti di analisi o tracciamento.</li>
         <li>Sei tu a decidere se e con chi condividere i file che esporti (CSV, PDF o backup).</li>
+        <li>Le foto degli scontrini vengono lette sul dispositivo e non vengono conservate.</li>
       </ul>
     </section>
 
@@ -90,7 +91,12 @@
       <li>spese ed entrate: importo, data e ora, categorie, nota e icona;</li>
       <li>categorie, con nome, colore, icona e budget mensile;</li>
       <li>azioni rapide e spese ricorrenti (descrizione, importo, frequenza, data di inizio);</li>
-      <li>le tue preferenze, come il tema chiaro o scuro e il colore dell'app.</li>
+      <li>le tue preferenze, come il tema chiaro o scuro e il colore dell'app, e un indicatore
+        locale che ricorda se hai completato o saltato la guida iniziale, per non mostrarla
+        di nuovo agli avvii successivi. Questo indicatore non è una statistica di utilizzo
+        e non viene trasmesso;</li>
+      <li>se usi il widget della schermata Home, una copia delle azioni rapide e le spese
+        aggiunte dal widget che l'app non ha ancora registrato (vedi il punto 8).</li>
     </ul>
     <p>
       Queste informazioni non vengono inviate allo sviluppatore né a terzi. Lo sviluppatore
@@ -101,7 +107,9 @@
     <p>L'app non raccoglie e non tratta:</p>
     <ul>
       <li>nome, indirizzo email, numero di telefono o altri dati di contatto;</li>
-      <li>posizione, contatti, foto, fotocamera o microfono;</li>
+      <li>posizione, contatti o microfono;</li>
+      <li>foto, a parte quella dello scontrino che scegli tu di far leggere, che non viene
+        conservata (vedi il punto 7);</li>
       <li>identificativi del dispositivo o pubblicitari;</li>
       <li>dati di utilizzo, statistiche o rapporti sugli arresti anomali.</li>
     </ul>
@@ -133,7 +141,9 @@
     <ul>
       <li>esportare le spese in un file CSV;</li>
       <li>creare il resoconto mensile in PDF;</li>
-      <li>creare un file di backup con tutti i dati dell'app.</li>
+      <li>creare un file di backup con spese, entrate, categorie, azioni rapide e spese
+        ricorrenti. Le preferenze di aspetto e l'indicatore della guida iniziale non sono
+        inclusi in questo file e non vengono modificati dal suo ripristino.</li>
     </ul>
     <p>
       In tutti questi casi l'app prepara il file e apre il menu di condivisione di Android:
@@ -152,40 +162,80 @@
       l'app lo usa solo per leggere il file che hai scelto.
     </p>
 
-    <h2>7. Permessi</h2>
+    <h2>7. Lettura degli scontrini</h2>
     <p>
-      L'app non richiede permessi per Internet, posizione, contatti, fotocamera, microfono
-      o notifiche. L'unico accesso ai file avviene quando scegli tu un file di backup da
-      ripristinare, come descritto al punto 6.
+      Quando aggiungi una spesa puoi far leggere all'app i dati di uno scontrino. Scegli tu
+      se scattare una foto, con l'app fotocamera del telefono, o sceglierne una con il
+      selettore di foto di Android. L'app riceve solo la foto che hai scattato o scelto e
+      non accede alla fotocamera né alla galleria in nessun altro momento.
+    </p>
+    <p>
+      Il testo della foto viene riconosciuto sul dispositivo, senza connessione, con la
+      libreria ML Kit di Google. Né la foto né il testo vengono inviati allo sviluppatore o
+      a terzi. Dal testo l'app ricava l'importo totale, la data e il nome del negozio e li
+      inserisce nel modulo della spesa: puoi correggerli, e vengono salvati solo se salvi
+      la spesa. La copia della foto usata per la lettura viene eliminata subito dopo; la
+      foto originale nella tua galleria non viene toccata.
+    </p>
+    <p>
+      Google indica che ML Kit può inviare a Google
+      <a href="https://developers.google.com/ml-kit/android-data-disclosure">dati tecnici
+      sul proprio funzionamento</a>, come il modello del dispositivo, la versione dell'app e
+      i tempi di elaborazione, ma non le immagini né il testo. Spese Rapide non ha il
+      permesso di accedere a Internet, quindi l'app non può effettuare questi invii.
     </p>
 
-    <h2>8. Per quanto tempo restano i dati e come cancellarli</h2>
+    <h2>8. Widget della schermata Home</h2>
+    <p>
+      Se aggiungi alla schermata Home il widget di Spese Rapide, il widget mostra le tue
+      azioni rapide con il loro importo: chiunque veda lo schermo del telefono può leggerle.
+      Per mostrarle, l'app ne conserva una copia nella propria area di memoria. Quando tocchi
+      un'azione rapida sul widget, la spesa viene messa in attesa, sempre sul dispositivo, e
+      l'app la registra con la data e l'ora del tocco la prossima volta che la apri.
+    </p>
+
+    <h2>9. Permessi</h2>
+    <p>
+      L'app non richiede permessi per Internet, posizione, contatti, fotocamera, microfono
+      o notifiche. Per leggere gli scontrini usa l'app fotocamera del telefono e il
+      selettore di foto di Android, che non richiedono permessi. L'unico altro accesso ai
+      file avviene quando scegli tu un file di backup da ripristinare, come descritto al
+      punto 6.
+    </p>
+
+    <h2>10. Per quanto tempo restano i dati e come cancellarli</h2>
     <p>
       I dati restano sul dispositivo finché non decidi di cancellarli. Puoi eliminare
       singole spese, categorie, azioni rapide e spese ricorrenti, oppure cancellare tutti i
-      dati con la funzione "Wipe Dati" nelle impostazioni. Disinstallando l'app, Android
+      dati dalle impostazioni di Android, nella sezione dedicata all'app, usando l'opzione
+      per cancellare i dati o lo spazio di archiviazione (il nome varia in base al dispositivo).
+      Questa operazione cancella anche le preferenze e l'indicatore della guida iniziale.
+      La funzione di sviluppo "Wipe Dati" non è disponibile nella versione di produzione.
+      Disinstallando l'app, Android
       elimina tutti i suoi dati dal dispositivo. I file che hai esportato o condiviso
       restano invece dove li hai salvati e vanno eliminati separatamente.
     </p>
 
-    <h2>9. Servizi di terze parti</h2>
+    <h2>11. Servizi di terze parti</h2>
     <p>
       L'app non integra servizi di terze parti che raccolgono dati, come strumenti di
       analisi, pubblicità o accesso con account esterni. Le librerie usate per il database,
-      i PDF, la condivisione e la scelta dei file funzionano solo sul dispositivo.
+      i PDF, la condivisione, la scelta dei file e il widget funzionano solo sul
+      dispositivo. Anche il riconoscimento del testo degli scontrini, con ML Kit di Google,
+      avviene sul dispositivo, come descritto al punto 7.
     </p>
     <p>
       Lo scaricamento dell'app da Google Play è regolato dai termini e
       dall'<a href="https://policies.google.com/privacy?hl=it">informativa sulla privacy di Google</a>.
     </p>
 
-    <h2>10. Minori</h2>
+    <h2>12. Minori</h2>
     <p>
       L'app non è rivolta in modo specifico ai minori e non raccoglie dati personali di
       nessun utente, minori compresi.
     </p>
 
-    <h2>11. I tuoi diritti</h2>
+    <h2>13. I tuoi diritti</h2>
     <p>
       Il Regolamento (UE) 2016/679 (GDPR) ti riconosce diritti come l'accesso, la
       rettifica e la cancellazione dei tuoi dati personali. Poiché lo sviluppatore non
@@ -196,13 +246,13 @@
       <a href="https://www.garanteprivacy.it">Garante per la protezione dei dati personali</a>.
     </p>
 
-    <h2>12. Modifiche a questa informativa</h2>
+    <h2>14. Modifiche a questa informativa</h2>
     <p>
       Se l'app cambierà il modo in cui gestisce i dati, questa informativa sarà aggiornata
       e la data in cima alla pagina sarà modificata.
     </p>
 
-    <h2>13. Contatti</h2>
+    <h2>15. Contatti</h2>
     <p>
       Amedeo Fortino<br>
       Email: <a href="mailto:amedeo.fortino@gmail.com">amedeo.fortino@gmail.com</a>
