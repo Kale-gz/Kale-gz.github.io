@@ -13,27 +13,67 @@
 </head>
 <body>
 
-    <h1>Informativa sulla Privacy</h1>
-    <p><strong>Ultimo aggiornamento:</strong> 08 Aprile 2026</p>
+<h1>Informativa sulla Privacy</h1>
+<p><strong>Ultimo aggiornamento:</strong> 5 novembre 2026</p>
 
-    <p>La presente Informativa sulla Privacy descrive le modalità con cui l'applicazione <strong>Scopri la tua rata</strong> gestisce le informazioni degli utenti.</p>
+<p>La presente Informativa sulla Privacy descrive le modalità con cui l'applicazione <strong>Scopri
+    la tua rata</strong> gestisce le informazioni degli utenti.</p>
 
-    <h2>1. Tipologia di dati raccolti</h2>
-    <p>L'Applicazione è progettata per operare come simulatore di piani di ammortamento alla francese in modalità offline.</p>
-    <ul>
-        <li><strong>Dati Personali:</strong> L'Applicazione non raccoglie, non memorizza e non trasmette alcun dato personale identificativo (come nome, indirizzo email o posizione).</li>
-        <li><strong>Dati di Simulazione:</strong> I parametri inseriti (Importo, Durata, TAN) vengono utilizzati esclusivamente per il calcolo matematico locale sul dispositivo.</li>
-    </ul>
+<h2>1. Tipologia di dati raccolti</h2>
+<p>L'Applicazione consente di simulare piani di ammortamento alla francese. I calcoli vengono
+    eseguiti sul dispositivo e funzionano anche senza connessione a Internet. Quando è disponibile
+    una connessione, i servizi descritti di seguito possono trasmettere dati di utilizzo e diagnostica.</p>
+<ul>
+    <li><strong>Dati forniti dall'utente:</strong> L'Applicazione non richiede un account né
+        l'inserimento di nome, indirizzo email o posizione per effettuare le simulazioni.
+    </li>
+    <li><strong>Dati di Simulazione:</strong> I parametri inseriti (Importo, Durata, TAN) vengono
+        utilizzati per il calcolo matematico locale sul dispositivo. Il codice dell'Applicazione
+        non invia questi parametri a Firebase come eventi o proprietà utente.
+    </li>
+    <li><strong>Dati di utilizzo e diagnostica:</strong> i servizi Firebase possono raccogliere
+        eventi automatici di utilizzo, informazioni tecniche sull'app e sul dispositivo,
+        identificatori dell'istanza dell'app o dell'installazione e segnalazioni di errori.
+        Questi identificatori possono costituire dati personali anche senza nome o email.</li>
+</ul>
 
-    <h2>2. Servizi di terze parti</h2>
-    <p>L'Applicazione non utilizza SDK di terze parti, sistemi di analisi (come Google Analytics) o circuiti pubblicitari che possano tracciare il comportamento dell'utente.</p>
+<h2>2. Servizi di terze parti</h2>
+<p>Nelle versioni di produzione configurate con Firebase, l'Applicazione utilizza i seguenti
+    servizi di Google. La raccolta è disattivata nelle build di sviluppo.</p>
+<ul>
+    <li><strong>Google Analytics for Firebase:</strong> raccoglie eventi automatici e informazioni
+        sull'utilizzo dell'app per comprenderne l'uso e migliorarne le funzionalità.</li>
+    <li><strong>Firebase Crashlytics:</strong> raccoglie segnalazioni di arresti anomali, tracce degli
+        errori e informazioni tecniche sul dispositivo e sull'app per individuare e correggere problemi.</li>
+</ul>
+<p><strong>Identificatore pubblicitario Android (AD_ID):</strong> la raccolta dell'Advertising ID
+    da parte di Firebase Analytics è disabilitata e il permesso
+    <code>com.google.android.gms.permission.AD_ID</code> è escluso dal manifest Android.
+    Questa impostazione non disabilita gli identificatori dell'istanza dell'app o dell'installazione
+    utilizzati dai servizi di analisi e diagnostica.</p>
+<p>Per informazioni sul trattamento dei dati da parte di Google, consulta
+    <a href="https://firebase.google.com/support/privacy/">Privacy e sicurezza in Firebase</a> e
+    <a href="https://policies.google.com/privacy?hl=it">l'Informativa sulla privacy di Google</a>.</p>
 
-    <h2>3. Diritti dell'utente</h2>
-    <p>Poiché non viene effettuata alcuna raccolta di dati, non sussiste alcun trattamento degli stessi ai sensi del GDPR. L'utente ha il pieno controllo dell'app tramite l'installazione e la disinstallazione locale.</p>
+<h2>3. Conservazione dei dati</h2>
+<p>I dati trasmessi a Firebase sono conservati secondo le impostazioni dei servizi e le condizioni
+    applicabili di Google. I tempi di conservazione di Analytics dipendono dalla configurazione
+    della proprietà Google Analytics. Per Crashlytics, Google indica un periodo di 90 giorni prima
+    di avviare la rimozione dei dati dai sistemi attivi e di backup. Ulteriori dettagli sono
+    disponibili nella documentazione Firebase collegata sopra.</p>
 
-    <div class="footer">
-        <p>Per qualsiasi domanda, contatta lo sviluppatore a: <strong>amedeo.fortino+loansimulator@gmail.com</strong></p>
-    </div>
+<h2>4. Diritti dell'utente e contatti</h2>
+<p>Per informazioni sul trattamento dei dati o per esercitare i diritti previsti dalla normativa
+    applicabile, inclusi accesso, rettifica, cancellazione, limitazione, opposizione e portabilità
+    ove applicabili, puoi contattare lo sviluppatore all'indirizzo riportato sotto. Puoi inoltre
+    presentare un reclamo al Garante per la protezione dei dati personali.</p>
+<p>La disinstallazione interrompe l'utilizzo dei servizi da parte dell'app sul dispositivo,
+    ma non comporta automaticamente la cancellazione dei dati già trasmessi a Google.</p>
+
+<div class="footer">
+    <p>Per qualsiasi domanda, contatta lo sviluppatore a: <strong>amedeo.fortino+loansimulator@gmail.com</strong>
+    </p>
+</div>
 
 </body>
 </html>
