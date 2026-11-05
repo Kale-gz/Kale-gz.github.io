@@ -63,14 +63,14 @@
   </header>
 
   <main>
-    <p class="muted">Ultimo aggiornamento: <time datetime="2026-11-01">1 novembre 2026</time></p>
+    <p class="muted">Ultimo aggiornamento: <time datetime="2026-11-05">5 novembre 2026</time></p>
 
     <section class="summary" aria-label="In breve">
       <h2>In breve</h2>
       <ul>
-        <li>Spese Rapide funziona completamente offline: i dati che inserisci restano sul tuo dispositivo.</li>
-        <li>Lo sviluppatore non raccoglie, non riceve e non vende alcun dato personale.</li>
-        <li>L'app non richiede un account, non mostra pubblicità e non usa strumenti di analisi o tracciamento.</li>
+        <li>Spese Rapide permette di registrare le spese anche offline: i dati che inserisci restano sul tuo dispositivo.</li>
+        <li>Le versioni di produzione inviano a Google Firebase Crashlytics rapporti tecnici sugli errori; lo sviluppatore pu&ograve; consultarli per correggere i problemi.</li>
+        <li>L'app non richiede un account, non mostra pubblicità e usa Firebase Analytics per statistiche tecniche di utilizzo, senza identificativi pubblicitari.</li>
         <li>Sei tu a decidere se e con chi condividere i file che esporti (CSV, PDF o backup).</li>
         <li>Le foto degli scontrini vengono lette sul dispositivo e non vengono conservate.</li>
       </ul>
@@ -110,12 +110,32 @@
       <li>posizione, contatti o microfono;</li>
       <li>foto, a parte quella dello scontrino che scegli tu di far leggere, che non viene
         conservata (vedi il punto 7);</li>
-      <li>identificativi del dispositivo o pubblicitari;</li>
-      <li>dati di utilizzo, statistiche o rapporti sugli arresti anomali.</li>
+      <li>identificativi pubblicitari;</li>
+      <li>statistiche di utilizzo per pubblicit&agrave;.</li>
     </ul>
     <p>
-      L'app non richiede il permesso di accedere a Internet: non ha quindi modo di
-      trasmettere i tuoi dati in rete.
+      L'app accede a Internet per inviare diagnostica a Firebase Crashlytics di Google.
+      I rapporti includono messaggi di errore, stack trace, versione dell'app, informazioni
+      sul dispositivo e sul sistema operativo e identificativi dell'installazione.
+      I messaggi di errore possono contenere valori coinvolti nell'operazione fallita.
+      Non aggiungiamo intenzionalmente note, importi, foto o contenuti dei backup ai rapporti.
+      La raccolta &egrave; abilitata nelle versioni di produzione e disabilitata in debug e profile.
+      Per trattamento e conservazione dei dati consulta
+      <a href="https://firebase.google.com/support/privacy">la documentazione privacy di Firebase</a>.
+    </p>
+
+    <p>
+      Le versioni di produzione usano inoltre Google Analytics for Firebase per eventi
+      automatici di utilizzo (ad esempio avvii e sessioni), informazioni tecniche sul
+      dispositivo, versione dell'app e identificativo dell'istanza dell'app.
+      Questi dati vengono trasmessi a Google e lo sviluppatore pu&ograve; consultare
+      le statistiche nella console Firebase. Non inviamo note, importi, categorie,
+      scontrini o backup ad Analytics e non impostiamo un identificativo utente.
+      La raccolta &egrave; disabilitata in debug e profile. L'accesso all'identificativo
+      pubblicitario, la memorizzazione di dati pubblicitari e la personalizzazione
+      pubblicitaria sono disabilitati; il permesso Android AD_ID viene rimosso.
+      Per il trattamento e la conservazione consulta
+      <a href="https://firebase.google.com/support/privacy">la documentazione privacy di Firebase</a>.
     </p>
 
     <h2>4. Dove sono conservati i dati</h2>
@@ -178,11 +198,10 @@
       foto originale nella tua galleria non viene toccata.
     </p>
     <p>
-      Google indica che ML Kit può inviare a Google
+      Google indica che ML Kit pu&ograve; inviare a Google
       <a href="https://developers.google.com/ml-kit/android-data-disclosure">dati tecnici
-      sul proprio funzionamento</a>, come il modello del dispositivo, la versione dell'app e
-      i tempi di elaborazione, ma non le immagini né il testo. Spese Rapide non ha il
-      permesso di accedere a Internet, quindi l'app non può effettuare questi invii.
+      sul proprio funzionamento</a>, come modello del dispositivo, versione dell'app e
+      tempi di elaborazione, ma non immagini o testo. L'app dispone ora di accesso a Internet.
     </p>
 
     <h2>8. Widget della schermata Home</h2>
@@ -196,7 +215,7 @@
 
     <h2>9. Permessi</h2>
     <p>
-      L'app non richiede permessi per Internet, posizione, contatti, fotocamera, microfono
+      L'app non richiede permessi per posizione, contatti, fotocamera, microfono
       o notifiche. Per leggere gli scontrini usa l'app fotocamera del telefono e il
       selettore di foto di Android, che non richiedono permessi. L'unico altro accesso ai
       file avviene quando scegli tu un file di backup da ripristinare, come descritto al
@@ -218,8 +237,9 @@
 
     <h2>11. Servizi di terze parti</h2>
     <p>
-      L'app non integra servizi di terze parti che raccolgono dati, come strumenti di
-      analisi, pubblicità o accesso con account esterni. Le librerie usate per il database,
+      L'app integra Google Firebase Crashlytics e Firebase Analytics per la diagnostica
+      e le statistiche di utilizzo descritte al punto 3. Non integra pubblicit&agrave;
+      o accesso con account esterni. Le librerie usate per il database,
       i PDF, la condivisione, la scelta dei file e il widget funzionano solo sul
       dispositivo. Anche il riconoscimento del testo degli scontrini, con ML Kit di Google,
       avviene sul dispositivo, come descritto al punto 7.
@@ -240,23 +260,3 @@
       Il Regolamento (UE) 2016/679 (GDPR) ti riconosce diritti come l'accesso, la
       rettifica e la cancellazione dei tuoi dati personali. Poiché lo sviluppatore non
       riceve né conserva i tuoi dati, puoi esercitare direttamente questi diritti dall'app:
-      consultando, modificando o cancellando le informazioni che hai inserito. Per
-      qualsiasi chiarimento puoi contattare lo sviluppatore all'indirizzo indicato al
-      punto 1. Hai inoltre il diritto di presentare un reclamo al
-      <a href="https://www.garanteprivacy.it">Garante per la protezione dei dati personali</a>.
-    </p>
-
-    <h2>14. Modifiche a questa informativa</h2>
-    <p>
-      Se l'app cambierà il modo in cui gestisce i dati, questa informativa sarà aggiornata
-      e la data in cima alla pagina sarà modificata.
-    </p>
-
-    <h2>15. Contatti</h2>
-    <p>
-      Amedeo Fortino<br>
-      Email: <a href="mailto:amedeo.fortino@gmail.com">amedeo.fortino@gmail.com</a>
-    </p>
-  </main>
-</body>
-</html>
